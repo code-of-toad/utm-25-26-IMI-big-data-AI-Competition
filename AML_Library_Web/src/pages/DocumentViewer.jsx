@@ -20,8 +20,13 @@ function DocumentViewer() {
       return
     }
 
+    // Get base path from Vite's import.meta.env
+    const baseUrl = import.meta.env.BASE_URL || '/'
+    
     // Load markdown file from public directory
-    fetch(`/AML_Library/${document.filename}`)
+    // Remove trailing slash from baseUrl if present, then add the path
+    const basePath = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+    fetch(`${basePath}/AML_Library/${document.filename}`)
       .then(response => {
         if (!response.ok) throw new Error('Failed to load document')
         return response.text()
