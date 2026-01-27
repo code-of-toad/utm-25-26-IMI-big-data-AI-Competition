@@ -40,9 +40,8 @@ jobs:
       - name: Set base path
         id: base_path
         run: |
-          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
-          echo "VITE_BASE_PATH=/$REPO_NAME/" >> $GITHUB_ENV
-          echo "Base path set to: /$REPO_NAME/"
+          echo "VITE_BASE_PATH=/utm-25-26-IMI-big-data-AI-Competition/" >> $GITHUB_ENV
+          echo "Base path set to: /utm-25-26-IMI-big-data-AI-Competition/"
 
       - name: Build
         run: npm run build

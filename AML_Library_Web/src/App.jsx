@@ -5,9 +5,12 @@ import DocumentViewer from './pages/DocumentViewer'
 import MasterRedFlags from './pages/MasterRedFlags'
 import Search from './pages/Search'
 
+// Get base path from Vite's import.meta.env or default to '/'
+const basePath = import.meta.env.BASE_URL || '/'
+
 function App() {
   return (
-    <Router>
+    <Router basename={basePath}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
